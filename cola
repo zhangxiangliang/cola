@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+if (file_exists(__DIR__.'/../../autoload.php')) {
+    require __DIR__.'/../../autoload.php';
+} else {
+    require __DIR__.'/vendor/autoload.php';
+}
+
+$app = new Symfony\Component\Console\Application('Cola', '0.0.1');
+$app->addCommands([
+    new NewOne\Cola\Console\NewCommand,
+    new NewOne\Cola\Console\AddCommand,
+    new NewOne\Cola\Console\ListCommand,
+    new NewOne\Cola\Console\DeleteCommand,
+]);
+
+$app->run();
